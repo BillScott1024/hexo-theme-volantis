@@ -563,7 +563,6 @@ seo:
     tag: noindex,follow
     # robots can be written in front-matter
 
-
 ############################### Plugins ###############################
 plugins:
   ################ required plugins ################
