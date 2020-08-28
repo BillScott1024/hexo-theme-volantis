@@ -31,8 +31,8 @@ html
   font-family: $fontfamily
   font-size: $fontsize-body
   >
-    if hexo-config('style.scrollbar.size')
-      scrollbar(convert(hexo-config('style.scrollbar.size')), convert(hexo-config('style.scrollbar.border')) || 0px)
+    if hexo-config('custom_css.scrollbar.size')
+      scrollbar(convert(hexo-config('custom_css.scrollbar.size')), convert(hexo-config('custom_css.scrollbar.border')) || 0px)
 
 body
   background-color: var(--color-site-bg)
@@ -258,12 +258,11 @@ optgroup
   font-weight: bold
 
 
-table
+table:not([class])
   border-collapse: collapse
   overflow: auto
   display: inline-block
   max-width: 100%
-  scrollbar-codeblock()
   margin-right: $gap-row
   vertical-align: text-top
   th
@@ -276,11 +275,10 @@ table
   tr
     word-break: keep-all
     background-color: lighten($color-block, 3)
-  tbody
-    >tr
-      trans()
-      &:hover
-        background-color: darken($color-block, 2)
+    trans()
+    &:hover
+      background-color: darken($color-block, 2)
+
 
 td,th
   padding: 0

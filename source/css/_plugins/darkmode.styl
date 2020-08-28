@@ -1,41 +1,63 @@
+.darkmode-layer
+  display: none
 .darkmode-toggle
-	z-index: 100000
-.darkmode-background
-	z-index: -9999999 !important
+  z-index: 1001
+  &:before
+    font-family: hexo-config('tag_plugins.note.iconfont')
+    font-weight: bold
+    content: '\f186'
+    color: white
 .darkmode--activated
-	--color-site-bg: convert(hexo-config('color.dark.site_bg'))
-	--color-site-inner: convert(hexo-config('color.dark.site_inner'))
-	--color-site-footer: convert(hexo-config('color.dark.site_footer'))
-	--color-card: convert(hexo-config('color.dark.card'))
-	--color-text: convert(hexo-config('color.dark.text'))
+  .darkmode-toggle
+    z-index: 1001
+    &:before
+      content: '\f185'
+      transform: scale(1.4)
+      color: black
+  .highlight
+    background: #fff !important
+    figcaption
+      color: #666
+      background: #ccc !important
 
-	--color-block: convert(hexo-config('color.dark.block'))
-	--color-codeblock: convert(hexo-config('color.dark.codeblock'))
-	--color-inlinecode: convert(hexo-config('color.dark.inlinecode'))
-	--color-h1: convert(hexo-config('color.dark.h1'))
-	--color-h2: convert(hexo-config('color.dark.h2'))
-	--color-h3: convert(hexo-config('color.dark.h3'))
-	--color-h4: convert(hexo-config('color.dark.h4'))
-	--color-h5: convert(hexo-config('color.dark.h5'))
-	--color-h6: convert(hexo-config('color.dark.h6'))
-	--color-p: convert(hexo-config('color.dark.p'))
-	--color-list: convert(hexo-config('color.dark.list'))
-	--color-list-hl: convert(hexo-config('color.dark.list_hl'))
-	--color-meta: convert(hexo-config('color.dark.meta'))
+// 下面这些缩进格式似乎与众不同，我只要插入代码就会报错，删除缩进重新添加相同数量的空格也会检测出代码变化。
+
+.darkmode-background
+	z-index: -1000000 !important
+.darkmode--activated
+	--color-site-bg: convert(hexo-config('color_scheme.dark.site_bg'))
+	--color-site-inner: convert(hexo-config('color_scheme.dark.site_inner'))
+	--color-site-footer: convert(hexo-config('color_scheme.dark.site_footer'))
+	--color-card: convert(hexo-config('color_scheme.dark.card'))
+	--color-text: convert(hexo-config('color_scheme.dark.text'))
+
+	--color-block: convert(hexo-config('color_scheme.dark.block'))
+	--color-codeblock: convert(hexo-config('color_scheme.dark.codeblock'))
+	--color-inlinecode: convert(hexo-config('color_scheme.dark.inlinecode'))
+	--color-h1: convert(hexo-config('color_scheme.dark.h1'))
+	--color-h2: convert(hexo-config('color_scheme.dark.h2'))
+	--color-h3: convert(hexo-config('color_scheme.dark.h3'))
+	--color-h4: convert(hexo-config('color_scheme.dark.h4'))
+	--color-h5: convert(hexo-config('color_scheme.dark.h5'))
+	--color-h6: convert(hexo-config('color_scheme.dark.h6'))
+	--color-p: convert(hexo-config('color_scheme.dark.p'))
+	--color-list: convert(hexo-config('color_scheme.dark.list'))
+	--color-list-hl: convert(hexo-config('color_scheme.dark.list_hl'))
+	--color-meta: convert(hexo-config('color_scheme.dark.meta'))
 
 
-	if hexo-config('plugins.backstretch.position') =='fixed'
+	if hexo-config('plugins.backstretch.position') == 'fixed'
 		.backstretch
 			mix-blend-mode: difference  !important
 	else
 		.l_body
 			background-color: var(--color-site-bg) !important
 	img
-		filter: brightness(convert(hexo-config('color.dark.brightness'))) !important
+		filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 	.lazyload
-		filter: brightness(convert(hexo-config('color.dark.brightness'))) !important
+		filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 	.pdf
-		filter: brightness(convert(hexo-config('color.dark.brightness'))) !important
+		filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 	//header
 	.l_header .wrapper .title
 		color: var(--color-meta)
@@ -99,7 +121,9 @@
 	*:not(.highlight) >table tr
 		background-color: var(--color-card)
 	*:not(.highlight) >table th
-		background: rgba(3, 8, 36, 0.56)
+		background: var(--color-site-bg)
+	*:not(.highlight) table td,*:not(.highlight) table th
+		border-color: var(--color-site-bg)
 	*:not(.highlight) >table tr:hover
 		background: var(--color-codeblock)
 	blockquote p
@@ -153,7 +177,7 @@
 		.aplayer .aplayer-lrc:after
 			background: linear-gradient(180deg,hsla(0,0%,0%,0) 0,hsla(0,0%,13%,.8))
 		.aplayer-pic
-			filter: brightness(convert(hexo-config('color.dark.brightness')))
+			filter: brightness(convert(hexo-config('color_scheme.dark.brightness')))
 		.aplayer .aplayer-list ol li
 			border-top: 1px solid var(--color-card)
 		.aplayer.aplayer-withlist .aplayer-info
