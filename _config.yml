@@ -175,50 +175,6 @@ article:
         desc: '' # 条评论
       # 文章字数和阅读时长
       wordcount:
-<<<<<<< HEAD
-        enable: true
-        text: '本站总字数：'   # 需要启用 wordcount
-        unit: '字'
-      siteuv:
-        enable: true
-        text: '本站访客数：'   # 需要启用 busuanzi
-        unit: '人'
-      sitepv:
-        enable: true
-        text: '本站总访问量：' # 需要启用 busuanzi
-        unit: '次'
-      lastupd:
-        enable: true
-        friendlyShow: true    # 更友好的时间显示
-        text: '最后活动时间：'
-        unit: '日'
-
-  # You can add your own widget here or 'blog/source/_data/widget.yml'
-  # class: text, list, grid, qrcode, page, ... see more at https://volantis.js.org/
-
-
-
-footer:
-  # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, analytics, info, copyright]
-  social:
-    - icon: fas fa-rss
-      url: atom.xml
-    - icon: fas fa-envelope
-      url: mailto:me@xxx.com
-    - icon: fab fa-github
-      url: https://github.com/volantis-x/
-    - icon: fas fa-headphones-alt
-      url: https://music.163.com/#/user/home?id=63035382
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
-    #   url: /
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
-    #   url: /
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
-    #   url: /
-    # - avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
-    #   url: /
-=======
         icon_wordcount: fas fa-keyboard
         icon_duration: fas fa-hourglass-half
       # 文章标签
@@ -508,7 +464,6 @@ site_footer:
       url: #
     - avatar: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
       url: #
->>>>>>> upstream/master
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
@@ -519,45 +474,6 @@ site_footer:
   copyright: '[Copyright © 2017-2020 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
-<<<<<<< HEAD
-
-
-############################### SEO ###############################
-seo:
-  # When there are no keywords in the article's front-matter, use tags as keywords.
-  use_tags_as_keywords: true
-  # When there is no description in the article's front-matter, use excerpt as the description.
-  use_excerpt_as_description: true
-  robots:
-    home_first_page: index,follow
-    home_other_pages: noindex,follow
-    archive: noindex,follow
-    category: noindex,follow
-    tag: noindex,follow
-    # robots can be written in front-matter
-
-############################### Plugins ###############################
-plugins:
-  ################ required plugins ################
-
-  # jquery
-  jquery: https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
-
-  ################ optional plugins ################
-
-  # fontawesome
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css
-  # fontawesome animation
-  fontawesome_animation: https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
-  # fancybox
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-
-
-  ######## Plugins to improve loading speed:
-  # Preload (The menu's url must end with ‘/’) 选择一个即可
-  instant_page: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js
-  flying_pages: https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js
-=======
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
@@ -580,7 +496,6 @@ plugins:
     service: flying_pages # instant_page, flying_pages
     instant_page: https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js
     flying_pages: https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js
->>>>>>> upstream/master
 
   # 图片懒加载
   # https://www.npmjs.com/package/vanilla-lazyload
@@ -592,15 +507,10 @@ plugins:
     blurIn: true # 模糊加载效果 （loadingImg为空时有效）
 
   ######## Plugins to optimize the experience:
-<<<<<<< HEAD
-  # highlight.js
-  highlightjs:
-=======
 
   # highlight.js
   highlightjs:
     enable: #true # Please set hexo.config.highlight.enable = false !!!
->>>>>>> upstream/master
     js: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js
     css: https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/solarized-light.css
     # more: https://www.jsdelivr.com/package/npm/highlight.js?path=styles
