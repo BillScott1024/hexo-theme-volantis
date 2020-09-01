@@ -1,3 +1,8 @@
+const iconType = {
+	success: 'success',
+	warning: 'warning'
+}
+
 // 检查 Aplayer 对象状态
 function checkAPlayer() {
 	if (APlayerController.player == undefined) {
@@ -27,9 +32,11 @@ function setAPlayerObserver() {
 	try {
 		APlayerController.player.on('play', function (e) {
 			updateAPlayerControllerStatus();
+			showToast('即将播放', iconType.success);
 		});
 		APlayerController.player.on('pause', function (e) {
 			updateAPlayerControllerStatus();
+			showToast('音乐已暂停', iconType.warning);
 		});
 		APlayerController.player.on('volumechange', function (e) {
 			onUpdateAPlayerVolume();
@@ -166,3 +173,25 @@ function updateTitle() {
 
 
 })(jQuery);
+
+
+function showToast(titleContent, iconType) {
+	const Toast = swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 5000,
+		timerProgressBar: true,
+		onOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+	})
+	let index = APlayerController.player.list.index;
+	let obj = APlayerController.player.list.audios[index];
+	Toast.fire({
+		icon: iconType,
+		title: titleContent,
+		html:  obj.title +'-' + obj.artist
+	})
+}
