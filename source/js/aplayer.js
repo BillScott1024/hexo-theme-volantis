@@ -87,11 +87,11 @@ function setAPlayerObserver() {
 function updateAPlayerControllerStatus() {
 	try {
 		if (APlayerController.player.audio.paused) {
-			document.getElementsByClassName('nav toggle')[0].children[0].classList.add("fa-play");
-			document.getElementsByClassName('nav toggle')[0].children[0].classList.remove("fa-pause");
+			document.getElementsByClassName('nav toggle')[0] && document.getElementsByClassName('nav toggle')[0].children[0].classList.add("fa-play");
+			document.getElementsByClassName('nav toggle')[0] && document.getElementsByClassName('nav toggle')[0].children[0].classList.remove("fa-pause");
 		} else {
-			document.getElementsByClassName('nav toggle')[0].children[0].classList.remove("fa-play");
-			document.getElementsByClassName('nav toggle')[0].children[0].classList.add("fa-pause");
+			document.getElementsByClassName('nav toggle')[0] && document.getElementsByClassName('nav toggle')[0].children[0].classList.remove("fa-play");
+			document.getElementsByClassName('nav toggle')[0] && document.getElementsByClassName('nav toggle')[0].children[0].classList.add("fa-pause");
 		}
 	} catch (error) {
 		console.log(error);
@@ -175,23 +175,29 @@ function updateTitle() {
 })(jQuery);
 
 
-function showToast(titleContent, iconType) {
+function showToast(titleContent, iconTypeIn) {
 	const Toast = swal.mixin({
 		toast: true,
 		position: 'top-end',
 		showConfirmButton: false,
-		timer: 5000,
-		timerProgressBar: true,
+		timer: iconTypeIn == iconType.success ? 5000 : 2000 ,
+		timerProgressBar: iconTypeIn == iconType.success ? true : false,
 		onOpen: (toast) => {
-			toast.addEventListener('mouseenter', Swal.stopTimer)
-			toast.addEventListener('mouseleave', Swal.resumeTimer)
+			toast.addEventListener('mouseenter', swal.stopTimer)
+			toast.addEventListener('mouseleave', swal.resumeTimer)
 		}
 	})
 	let index = APlayerController.player.list.index;
 	let obj = APlayerController.player.list.audios[index];
 	Toast.fire({
-		icon: iconType,
+		icon: iconTypeIn,
 		title: titleContent,
-		html:  obj.title +'-' + obj.artist
+		html: obj.title + '-' + obj.artist,
+		showClass: {
+			popup: 'animate__animated animate__fadeInRight'
+		},
+		hideClass: {
+			popup: 'animate__animated animate__fadeOutRight'
+		}
 	})
 }
