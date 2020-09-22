@@ -125,7 +125,7 @@ function getIssuesAPIForSites(cfg) {
           if (issue.screenshot && issue.screenshot.length > 0) {
             imgTag = '<div class="img"><img src="' + issue.screenshot + '" onerror="javascript:this.src=\'https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg\';"/></div>';
           } else {
-            imgTag = '<div class="img"></div>';
+            imgTag = '<div class="img"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg"></div>';
           }
           let infoTag = '<div class="info">';
           if (issue.avatar && issue.avatar.length > 0) {
