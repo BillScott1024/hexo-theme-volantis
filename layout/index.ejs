@@ -1,5 +1,34 @@
 <%- partial('_pre') %>
 <div class='l_main<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
+  
+  <% if(theme.plugins.jinrishici.enable == true){ %>
+    <br>
+    <br>
+    <br>
+    <div class="poem-wrap">
+      <div class="poem-border poem-left"></div>
+      <div class="poem-border poem-right"></div>
+      <p id="jinrishici-sentence">您好</p>
+      <p style="text-align:right" color="#696969" id="creator">- by</p>
+    </div>
+  <!-- <span id="jinrishici-sentence">挑选中...</span> -->
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var hitokotoCreator = document.getElementById('creator');
+    jinrishici.load(function(result) {
+      try {
+          if(result.data.origin.title){
+          hitokotoCreator.innerText = ("-《 " + result.data.origin.title + " 》")
+        } else {
+          hitokotoCreator.innerText = ""
+        }
+      } catch (error) {
+        hitokotoCreator.innerText = ""
+      }
+    });
+  </script>
+  <% } %>
+
   <%- partial('_partial/archive') %>
 </div>
 <%- partial('_partial/side') %>
